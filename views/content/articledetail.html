@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="text-center" style="color:red">
+        <h3><b><u>{{articledetails.title}}</u></b></h3>
+      </div>
+      <div class="row" style="margin:40px 0px 0px 0px">
+        <div>
+          <h3><b>Content:</b></h3>
+          <p class="text-justify">{{articledetails.content}}.</p>
+        </div>
+        <br>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <a class="btn btn-primary" ui-sref="searchtagname({tag:item})" ng-repeat="item in tags track by $index" style="text-decoration:none;margin-left:5px;">{{item}}&nbsp;</a>
+        </div>
+        <div class="col-xs-6 text-right">
+          <b>{{articledetails.timestamp}}</b>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <!-- <img ng-src="{{'http://localhost/mytest/uploads/'+articledetails.image}}" alt="" > -->
+        <img ng-src="{{articledetails.image|serverimage}}" width="400" height="300">
+      </div>
+    </div>
+  </div>
+</div>

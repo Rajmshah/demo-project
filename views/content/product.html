@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row" ng-repeat="products2 in products">
+    <div class="col-md-3" ng-repeat="product in products2" style="border:1px solid #000">
+      <a href="#/productdetail/{{product.id}}">
+        <img ng-src="{{'http://accessworld.in/admin/uploads/' + product.image1}}" width="250px"  height="250px">
+      </a>
+      <p class="text-center"><b>{{(product.name)|uppercase}}</b></p>
+      <p><b>{{(product.price)|currency}}</b></p>
+    </div>
+  </div>
+</div>

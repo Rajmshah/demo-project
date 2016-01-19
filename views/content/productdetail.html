@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h3>{{productdetails.product.name}}</h3>
+    </div>
+    <div class="col-md-8">
+      <div ng-repeat="image in productdetails.productimage">
+        <img ng-src="{{'http://accessworld.in/admin/uploads/'+image.image}}" alt="" />
+      </div>
+    </div>
+  </div>
+</div>

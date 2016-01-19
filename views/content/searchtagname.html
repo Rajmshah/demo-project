@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" ng-repeat="tagname in tagging">
+      <a href="#/articledetail/{{tagname.id}}">
+        <p style="font-size:22px;font-family: " Helvetica Neue ", Helvetica, Arial, sans-serif;">{{tagname.title}}</p>
+      </a>
+      <p class="text-justify" style="font-family: " Helvetica Neue ", Helvetica, Arial, sans-serif;">{{tagname.content}}</p>
+      <div class="row">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6 text-right" style="font-family: " Helvetica Neue ", Helvetica, Arial, sans-serif;">
+          {{tagname.timestamp}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

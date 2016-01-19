@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row text-center">
+    <form ng-submit="addTodo()">
+      <input type="text" ng-model="search" class="input-sm" list='listid' placeholder="Select from dropdown list" maxlength="18" size="25">
+      <datalist id='listid'>
+        <option value='TECHNOLOGY'>
+          <option value='SCIENCE'>
+            <option value='ENERGY'>
+              <option value='ENVIRONMENT'>
+                <option value='ANIMALS'>
+      </datalist>
+      <button type="submit" class="btn btn-primary" ng-model="todoText" ng-click="getSearch(search)"><span class="glyphicon glyphicon-search"></span> Search</button>
+    </form>
+  </div>
+  <div class="row" style="margin-top:40px">
+    <div class="col-md-4" ng-repeat="tagname in tagn">
+      <a href="#/articledetail/{{tagname.id}}">
+        <p style="font-size:22px;font-family: " Helvetica Neue ", Helvetica, Arial, sans-serif;">{{tagname.title}}</p>
+      </a>
+      <p class="text-justify" style="font-family: " Helvetica Neue ", Helvetica, Arial, sans-serif;">{{tagname.content}}</p>
+      <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6 text-right" style="font-family: " Helvetica Neue ", Helvetica, Arial, sans-serif;">
+          {{tagname.timestamp}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
