@@ -12,10 +12,10 @@
         <br>
       </div>
       <div class="row">
-        <div class="col-xs-6">
-          <a class="btn btn-primary" ui-sref="searchtagname({tag:item})" ng-repeat="item in tags track by $index" style="text-decoration:none;margin-left:5px;">{{item}}&nbsp;</a>
+        <div class="col-md-8 col-sm-8 col-xs-8">
+          <a class="btn btn-primary btnp" ui-sref="searchtagname({tag:item})" ng-repeat="item in tags track by $index" style="text-decoration:none; margin-left:5px; background-color: #337AB7;">{{item}}&nbsp;</a>
         </div>
-        <div class="col-xs-6 text-right">
+        <div class="col-md-4 col-sm-4 col-xs-4 text-right bts">
           <b>{{articledetails.timestamp}}</b>
         </div>
 
@@ -24,7 +24,7 @@
     <div class="col-md-6">
       <div>
         <!-- <img ng-src="{{'http://localhost/mytest/uploads/'+articledetails.image}}" alt="" > -->
-        <img ng-src="{{articledetails.image|serverimage}}" width="400" height="300">
+        <img class="imta img-responsive" ng-src="{{articledetails.image|serverimage}}" width="400" height="300">
       </div>
     </div>
   </div>
