@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  .box{
+    margin:0 auto;
+    text-align: center;
+    padding-top: 130px;
+    background-color:red;
+    border:1px solid red;
+    width:150px;
+    height:150px;
+  }
+  .box:hover{
+    background-color: yellow;
+    transition:all 10s ease-in-out;
+  }
+  .box1{
+    margin:0 auto;
+    text-align: center;
+    padding-top: 130px;
+    background-color:red;
+    border:1px solid red;
+    width:150px;
+    height:150px;
+  }
+  .box1:hover{
+    background-color: yellow;
+    transition:all 10s ease;
+  }  .box2{
+      margin:0 auto;
+      text-align: center;
+      padding-top: 130px;
+      background-color:red;
+      border:1px solid red;
+      width:150px;
+      height:150px;
+    }
+    .box2:hover{
+      background-color: yellow;
+      transition:all 10s ease-in;
+    }  .box3{
+        margin:0 auto;
+        text-align: center;
+        padding-top: 130px;
+        background-color:red;
+        border:1px solid red;
+        width:150px;
+        height:150px;
+      }
+      .box3:hover{
+        background-color: yellow;
+        transition:all 10s ease-out;
+      }  .box4{
+          margin:0 auto;
+          text-align: center;
+          padding-top: 130px;
+          background-color:red;
+          border:1px solid red;
+          width:150px;
+          height:150px;
+        }
+        .box4:hover{
+          background-color: yellow;
+          transition:all 10s linear;
+        }
+          .box5{
+            margin:0 auto;
+            text-align: center;
+            padding-top: 130px;
+            background-color:red;
+            border:1px solid red;
+            width:150px;
+            height:150px;
+          }
+          .box5:hover{
+            background-color: yellow;
+            transition:all 10s step(4,start);
+          }
+          .box6{
+              margin:0 auto;
+              text-align: center;
+              padding-top: 130px;
+              background-color:red;
+              border:1px solid red;
+              width:150px;
+              height:150px;
+            }
+
+            .box6:hover{
+              background-color: yellow;
+              transition:all 10s step(4,end);
+            }
+              .box7{
+                margin:0 auto;
+                text-align: center;
+                padding-top: 130px;
+                background-color:red;
+                border:1px solid red;
+                width:150px;
+                height:150px;
+              }
+              .box7:hover{
+                background-color: yellow;
+                transition:all 10s steps(4);
+              }
+               .box8{
+                  margin:0 auto;
+                  text-align: center;
+                  padding-top: 130px;
+                  background-color:red;
+                  border:1px solid red;
+                  width:150px;
+                  height:150px;
+                }
+                .box8:hover{
+                  background-color: yellow;
+                  transition:all 10s cubic-bezier(1,1,1,1);
+                }
+  </style>
+</head>
+<body>
+  <div class="row">
+      <div class="box">
+        Ease-in-out
+      </div>
+  </div>
+  <div class="row">
+      <div class="box1">
+        Ease
+      </div>
+  </div>
+  <div class="row">
+      <div class="box2">
+        Ease-in
+      </div>
+  </div>
+  <div class="row">
+      <div class="box3">
+        Ease-out
+      </div>
+  </div>
+  <div class="row">
+      <div class="box4">
+        linear
+      </div>
+  </div>
+  <div class="row">
+      <div class="box5">
+        step start
+      </div>
+  </div>
+  <div class="row">
+      <div class="box6">
+        step end
+      </div>
+  </div>
+  <div class="row">
+      <div class="box7">
+        steps
+      </div>
+  </div>
+  <div class="row">
+      <div class="box8">
+        cubic-bezier
+      </div>
+  </div>
+</body>
+</html>

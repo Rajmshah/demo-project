@@ -27,7 +27,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     templateUrl: "views/template.html",
     controller: 'HomeCtrl'
   })
-
+    .state('TransCtrl', {
+    url: "/transition",
+    templateUrl: "views/template.html",
+    controller: 'TransCtrl'
+  })
   .state('about', {
     url: "/about",
     templateUrl: "views/template.html",
