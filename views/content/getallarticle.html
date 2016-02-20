@@ -1,22 +1,3 @@
-<style>
-  .pgcol {
-    background-color: red;
-    color: white;
-  }
-  .pg {
-    position: relative;
-    float: left;
-    padding: 6px 12px;
-    margin-left: -1px;
-    line-height: 1.42857143;
-    text-decoration: none;
-    border: 1px solid #ddd;
-  }
-.pg:hover{
-    background-color:rgb(255,0,0);
-    cursor: pointer;
-  }
-</style>
 <div class="container">
   <div class="row">
     <h1 class="text-center" style="color:red"><u>ARTICLES</u></h1>
@@ -26,15 +7,15 @@
       </div>
     </div>
    -->
-    <div class="col-md-6" ng-repeat="article in allArticles" style="margin-top:40px">
-      <img class="img-responsive" ng-src="{{article.image|serverimage}}">
-      <div class="col-xs-9">
+    <div class="col-md-6 mt40" ng-repeat="article in allArticles">
+      <img class="img-responsive padd" ng-src="{{article.image|serverimage}}">
+      <div class="col-md-9 col-sm-9 col-xs-9">
         <a href="#/articledetail/{{article.id}}">
-          <p style="margin-bottom:2px;color:black;font-size:22px;font-family: " Helvetica Neue ", Helvetica, Arial, sans-serif;">{{article.title}}</p>
+          <p>{{article.title}}</p>
         </a>
       </div>
-      <div class="col-xs-3">
-        <div class="text-right" style="font-family: " Helvetica Neue ", Helvetica, Arial, sans-serif;">
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <div class="text-right fs" style="font-family: " Helvetica Neue ", Helvetica, Arial, sans-serif;">
           <b>{{article.timestamp}}</b>
         </div>
       </div>
