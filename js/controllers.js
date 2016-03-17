@@ -1,4 +1,4 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider','ngDialog'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
@@ -134,12 +134,51 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('AboutCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('AboutCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $log, ngDialog) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("about");
   $scope.menutitle = NavigationService.makeactive("About");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+
+  $scope.items = ['item1', 'item2', 'item3'];
+
+  $scope.animationsEnabled = true;
+
+  $scope.openD = function () {
+					ngDialog.open({
+						template: 'views/modal/sample1.html',
+						controller: 'Sample1Ctrl',
+						className: 'ngdialog-theme-default ngdialog-theme-custom'
+					});
+	};
+
+
+  $scope.open = function (size) {
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'views/modal/sample.html',
+      controller: 'SampleCtrl',
+      size: size,
+      resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+  $scope.toggleAnimation = function () {
+    $scope.animationsEnabled = !$scope.animationsEnabled;
+  };
+
+
   $scope.tabs = [{
     title: 'Dynamic Title 1',
     content: 'Dynamic content 1'
@@ -180,6 +219,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     alert("Note Saved");
   };
 
+})
+.controller('SampleCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, items, $uibModalInstance) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("about");
+  $scope.menutitle = NavigationService.makeactive("About");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+
+  $scope.items = items;
+  $scope.selected = {
+    item: $scope.items[0]
+  };
+
+  $scope.ok = function () {
+    $uibModalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+})
+
+.controller('Sample1Ctrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("about");
+  $scope.menutitle = NavigationService.makeactive("About");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
 })
 
 .controller('ProductCtrl', function($scope, TemplateService, NavigationService, $timeout, $http) {

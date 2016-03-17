@@ -74,6 +74,18 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     controller: 'TagCtrl'
   })
 
+  .state('samplemodal', {
+      url: "/sample",
+      templateUrl: "views/template.html",
+      controller: 'SampleCtrl'
+  })
+
+  .state('sample1', {
+      url: "/sample1",
+      templateUrl: "views/template.html",
+      controller: 'Sample1Ctrl'
+  })
+
   $urlRouterProvider.otherwise("/home");
 
 });

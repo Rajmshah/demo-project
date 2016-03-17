@@ -5,9 +5,11 @@
     border: 1px solid transparent;
     border-radius: 4px 4px 0 0;
   }
+
   .nav-tabs > li > div:hover {
     border-color: #eee #eee #ddd;
   }
+
   .nav-tabs > li.active > div,
   .nav-tabs > li.active > div:hover {
     color: #555;
@@ -22,6 +24,7 @@
     display: block;
     padding: 10px 15px;
   }
+
   .nav > li > div:hover {
     background-color: #eee;
   }
@@ -34,6 +37,7 @@
   .nav-tabs > li.disabled > div {
     color: #999;
   }
+
   .nav-tabs>li.disabled>div:hover,
   .nav-tabs>li.disabled>div:focus {
     color: #999;
@@ -45,12 +49,27 @@
   form.tab-form-demo .tab-pane {
     margin: 20px;
   }
-
 </style>
-<h1>
-  Welcome&nbsp;{{form.name}}</h1>
+<div>
+  Using ng-dialog  ==>
+        <button type="button" class="btn btn-default" ng-click="openD()">Open me!</button>
+</div>
+<br>
+<div>
+  Using $uibModal  ==>
+           <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>
+  <button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>
+  <button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>
+  <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation    ({{ animationsEnabled }})</button>
+  <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+</div>
+<div>
+  
+</div>
+<h1>Welcome&nbsp;{{form.name}}</h1>
 <p>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
 <div class="container">
@@ -113,8 +132,7 @@
 
 Name:
 <input type="text" ng-model="name" placeholder="Enter name here.">
-<br>
-Hello&nbsp;{{name}},
+<br> Hello&nbsp;{{name}},
 <br>
 <br>
 <p>
@@ -125,8 +143,7 @@ Hi&nbsp;
 
 <div class="container" ng-init="a=1;b=5">
   <p>
-    Expression solved (a*b)
-    {{a*b}}
+    Expression solved (a*b) {{a*b}}
   </p>
   <p>
     <b>Using span and ng-bind</b>
@@ -138,11 +155,9 @@ Hi&nbsp;
 
 <div class="container" ng-init="c=1;d=5">
   Num1:
-  <input type="number" ng-model="c" min="0" max="10">
-  &nbsp;&nbsp;Num2:
+  <input type="number" ng-model="c" min="0" max="10"> &nbsp;&nbsp;Num2:
   <input type="number" ng-model="d" min="0" max="10">
-  <br>
-  Mul:&nbsp;
+  <br> Mul:&nbsp;
   <span ng-bind="c*d"></span>
 </div>
 
@@ -156,84 +171,84 @@ Hi&nbsp;
 
 <div class="container">
   <flex-slider flex-slide="s in myImages">
-  <li>
-    <img ng-src="{{s}}">
-  </li>
-</flex-slider>
+    <li>
+      <img ng-src="{{s}}">
+    </li>
+  </flex-slider>
 </div>
 
 <div class="container">
-<!-- <div ng-repeat="m in photos"> -->
-<img ng-src="{{photos}}">
+  <!-- <div ng-repeat="m in photos"> -->
+  <img ng-src="{{photos}}">
 
-<img ng-src="{{pics}}">
-<!-- </div> -->
+  <img ng-src="{{pics}}">
+  <!-- </div> -->
 </div>
 
 <div>
-<tabset>
-  <tab heading="Static titlev1">Static content1</tab>
-  <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
-    {{tab.content}}
-  </tab>
-</tabset>
+  <tabset>
+    <tab heading="Static titlev1">Static content1</tab>
+    <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+      {{tab.content}}
+    </tab>
+  </tabset>
 
-<tabset vertical="true" type="pills">
-  <tab heading="Vertical 1">Vertical content 1</tab>
-  <tab heading="Vertical 2">Vertical content 2</tab>
-</tabset>
+  <tabset vertical="true" type="pills">
+    <tab heading="Vertical 1">Vertical content 1</tab>
+    <tab heading="Vertical 2">Vertical content 2</tab>
+  </tabset>
 
-<hr/>
+  <hr/>
 
-<tabset justified="true">
-  <tab heading="Justified">Justified content</tab>
-  <tab heading="SJ">Short Labeled Justified content</tab>
-  <tab heading="Long Justified">Long Labeled Justified content</tab>
-</tabset>
+  <tabset justified="true">
+    <tab heading="Justified">Justified content</tab>
+    <tab heading="SJ">Short Labeled Justified content</tab>
+    <tab heading="Long Justified">Long Labeled Justified content</tab>
+  </tabset>
 
 </div>
 
 <div ng-app="firstapp" ng-controller="AboutCtrl">
-<p>
-  <textarea ng-model="text" cols="40" rows="10"></textarea>
-</p>
+  <p>
+    <textarea ng-model="text" cols="40" rows="10"></textarea>
+  </p>
 
-<p>
-  <button ng-click="save()">Save</button>
-  <button ng-click="clear()">Clear</button>
-</p>
+  <p>
+    <button ng-click="save()">Save</button>
+    <button ng-click="clear()">Clear</button>
+  </p>
 
-<p>Number of characters left:
-  <span ng-bind="remain()"></span>
-</p>
+  <p>Number of characters left:
+    <span ng-bind="remain()"></span>
+  </p>
 
 </div>
 
 <div>
-<table class="table table-responsive">
-  <thead>
-    <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>John</td>
-      <td>Doe</td>
-      <td>john@example.com</td>
-    </tr>
-    <tr>
-      <td>Mary</td>
-      <td>Moe</td>
-      <td>mary@example.com</td>
-    </tr>
-    <tr>
-      <td>July</td>
-      <td>Dooley</td>
-      <td>july@example.com</td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
