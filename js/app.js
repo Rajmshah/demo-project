@@ -15,10 +15,13 @@ firstapp.filter('capitalize', function() {
   };
 });
 
-firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider,cfpLoadingBarProvider) {
 
   // for http request with session
   $httpProvider.defaults.withCredentials = true;
+  cfpLoadingBarProvider.includeSpinner = true;
+  cfpLoadingBarProvider.includeBar = true;
+  cfpLoadingBarProvider.spinnerTemplate = '<div class="back-bgblur"><div class="windows8"><div class="wBall" id="wBall_1"><div class="wInnerBall"></div></div><div class="wBall" id="wBall_2"><div class="wInnerBall"></div></div><div class="wBall" id="wBall_3"><div class="wInnerBall"></div>	</div><div class="wBall" id="wBall_4"><div class="wInnerBall"></div></div><div class="wBall" id="wBall_5"><div class="wInnerBall"></div></div></div></div>';
 
   $stateProvider
 
@@ -121,4 +124,30 @@ firstapp.directive('img', function($compile, $parse) {
       }
     }
   };
+});
+
+
+firstapp.directive('fancyboxBox', function($document) {
+    return {
+        restrict: 'EA',
+        replace: false,
+        link: function(scope, element, attr) {
+            var $element = $(element);
+            var target;
+            if (attr.rel) {
+               target = $("[rel='" + attr.rel + "']");
+            } else {
+                target = element;
+            }
+
+            target.fancybox({
+                // openEffect: 'fade',
+                // closeEffect: 'fade',
+                closeBtn: true,
+                helpers: {
+                    media: {}
+                }
+            });
+        }
+    };
 });

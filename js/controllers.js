@@ -1,11 +1,13 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider','ngDialog'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'ngDialog','cfp.loadingBar'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout,cfpLoadingBar) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("home");
   $scope.menutitle = NavigationService.makeactive("Home");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+
+  cfpLoadingBar.start();
 
   $scope.mySlides = [
     'http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg',
@@ -140,6 +142,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("About");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.allArticles=[];
+  NavigationService.getImage(function(data) {
+    console.log(data);
+    // _.each(data.queryresult,function(n){
+    //   $scope.allArticles.push(n);
+    // })
+    $scope.allArticles = data.queryresult;
+  });
 
   $scope.items = ['item1', 'item2', 'item3'];
 

@@ -31,6 +31,9 @@ var navigationservice = angular.module('navigationservice', [])
     getTag: function(tag, callback) {
       $http.get(adminurl + 'getarticlebytagname?tag=' + tag).success(callback);
     },
+    getImage:function(callback) {
+      $http.get(adminurl + 'getallarticle').success(callback);
+    },
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {
         if (navigation[i].name == menuname) {

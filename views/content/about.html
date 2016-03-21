@@ -63,8 +63,18 @@
   <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation    ({{ animationsEnabled }})</button>
   <div ng-show="selected">Selection from a modal: {{ selected }}</div>
 </div>
-<div>
-  
+<!-- <div>
+  <a fancybox-box class="fancyboxGroup" rel="fancybox-thumb" href="{{new.image | serverimage}}">
+    <img ng-src="{{new.image | serverimage}}" alt="" class="img-responsive">
+  </a>
+</div> -->
+<!-- <a fancybox-box class="fancyboxGroup" rel="fancybox-thumb">alsalsls
+</a> -->
+<div ng-repeat="article in allArticles">
+  <!-- ng-href="{{data | uploadpathforfancy}}" -->
+<a fancybox-box class="fancyboxGroup" rel="fancybox-thumb" ng-href="{{article.image|serverimage}}">
+    <img ng-src="{{article.image|serverimage}}" class="img-responsive ">
+  </a>
 </div>
 <h1>Welcome&nbsp;{{form.name}}</h1>
 <p>
